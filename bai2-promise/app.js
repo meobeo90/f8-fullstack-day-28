@@ -26,7 +26,7 @@ function sendRequest(method, url) {
     xhr.send();
   });
 }
-// Hàm gọi API có rety
+// Hàm gọi API có retry
 function sendRequestWithRetry(
   method,
   url,
@@ -41,8 +41,7 @@ function sendRequestWithRetry(
     if (retryInfo) {
       if (attempt > 1) {
         retryInfo.classList.add("show");
-        retryInfo.textContent =
-          attempt > 1 ? `Đang tải lại lần thứ ${attempt - 1}` : "";
+        retryInfo.textContent = `Đang tải lại lần thứ ${attempt - 1}`;
       } else {
         retryInfo.classList.remove("show");
         retryInfo.textContent = "";
