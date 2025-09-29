@@ -44,10 +44,10 @@ async function sendRequestWithRetry(
   retryInfo
 ) {
   let attempt = 0;
-  const maxAttemps = maxRetries + 1;
+  const maxAttempts = maxRetries + 1;
   let lastError = null;
 
-  while (attempt < maxAttemps) {
+  while (attempt < maxAttempts) {
     attempt++;
     if (retryInfo) {
       if (attempt > 1) {
@@ -68,7 +68,7 @@ async function sendRequestWithRetry(
       return result;
     } catch (error) {
       lastError = error;
-      if (attempt === maxAttemps) {
+      if (attempt === maxAttempts) {
         if (retryInfo) {
           retryInfo.classList.remove("show");
           retryInfo.textContent = "";
