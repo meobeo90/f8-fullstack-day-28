@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F8 Fullstack Day 28 - Bài tập XHR, Promise, Async/Await</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div class="container">
+      <header class="header">
+        <h1 id="main-title">F8 Fullstack Day 28</h1>
+        <p id="main-subtitle">Bài tập XHR, Callback, Promise & Async/Await</p>
+      </header>
+
+      <!-- Navigation Cards -->
+      <div class="exercises-grid" id="exercises-navigation">
+        <div class="exercise-card" id="exercise-1-card">
+          <h2 class="exercise-title">
+            <span class="exercise-number">1</span>
+            XHR với Callback Pattern
+          </h2>
+          <p class="exercise-description">
+            Học cách sử dụng XMLHttpRequest với callback pattern. Trải nghiệm
+            callback hell và cách xử lý.
+          </p>
+          <ul class="exercise-features">
+            <li>User Profile Card với API call</li>
+            <li>Posts với Comments (Callback Hell)</li>
+            <li>Todo List với Filter</li>
+            <li>Loading states & Error handling</li>
+          </ul>
+          <a href="bai1-xhr-callback/index.html" class="exercise-link">
+            Bắt đầu Bài 1
+          </a>
+        </div>
+
+        <div class="exercise-card" id="exercise-2-card">
+          <h2 class="exercise-title">
+            <span class="exercise-number">2</span>
+            Refactor với Promise
+          </h2>
+          <p class="exercise-description">
+            Cải thiện code từ Bài 1 bằng Promise. Giải quyết callback hell với
+            Promise chain.
+          </p>
+          <ul class="exercise-features">
+            <li>Promise wrapper cho XHR</li>
+            <li>Promise chain thay vì nested callbacks</li>
+            <li>Better error handling với .catch()</li>
+            <li>Retry mechanism</li>
+          </ul>
+          <a href="bai2-promise/index.html" class="exercise-link">
+            Bắt đầu Bài 2
+          </a>
+        </div>
+
+        <div class="exercise-card" id="exercise-3-card">
+          <h2 class="exercise-title">
+            <span class="exercise-number">3</span>
+            Modern với Async/Await
+          </h2>
+          <p class="exercise-description">
+            Viết code bất đồng bộ hiện đại với async/await. Code dễ đọc như
+            synchronous.
+          </p>
+          <ul class="exercise-features">
+            <li>Async/await syntax</li>
+            <li>Try/catch error handling</li>
+            <li>Clean, readable code</li>
+            <li>Modern JavaScript patterns</li>
+          </ul>
+          <a href="bai3-async-await/index.html" class="exercise-link"
+            >Bắt đầu Bài 3</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

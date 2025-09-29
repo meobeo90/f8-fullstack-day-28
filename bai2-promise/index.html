@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F8 Fullstack Day 28 - Bài tập XHR, Promise, Async/Await</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main Content Area -->
+      <main class="main-content" id="main-content">
+        <h2 class="section-title" id="content-title">
+          Chọn một bài tập để bắt đầu
+        </h2>
+
+        <!-- User Profile Section -->
+        <section class="user-profile-section" id="user-profile-section">
+          <h3>🔍 User Profile Card</h3>
+          <div class="user-search-form" id="user-search-form">
+            <input
+              type="number"
+              id="user-id-input"
+              class="user-id-input"
+              placeholder="Nhập User ID (1-10)"
+              min="1"
+              max="10"
+            />
+            <button id="search-user-btn" class="search-user-btn">
+              Tìm User
+            </button>
+          </div>
+          <div id="user-loading" class="loading-spinner">
+            <p>🔄 Đang tải thông tin user...</p>
+          </div>
+          <div id="user-error" class="error-message">
+            <p id="user-error-text" class="error-text">
+              Có lỗi xảy ra khi tải thông tin user
+            </p>
+          </div>
+          <div id="user-retry-info" class="retry-info"></div>
+          <div id="user-profile-card" class="user-profile-card">
+            <div id="user-avatar" class="user-avatar">U</div>
+            <div class="user-info"></div>
+          </div>
+        </section>
+
+        <!-- todos Section -->
+        <section class="posts-section" id="posts-section">
+          <h3>📝 Posts với Comments</h3>
+
+          <div id="posts-loading" class="loading-spinner">
+            <p>🔄 Đang tải posts...</p>
+          </div>
+          <div id="posts-error" class="error-message">
+            <p id="posts-error-text" class="error-text">
+              Có lỗi xảy ra khi tải posts
+            </p>
+          </div>
+          <div id="posts-retry-info" class="retry-info"></div>
+          <div id="posts-container" class="posts-container">
+            <!-- Posts sẽ được render bằng JS -->
+          </div>
+
+          <button id="load-more-posts-btn" class="load-more-btn">
+            Xem thêm Posts
+          </button>
+        </section>
+
+        <!-- Todo Section -->
+        <section class="todo-section" id="todo-section">
+          <h3>✅ Todo List với Filter</h3>
+
+          <div class="user-search-form">
+            <input
+              type="number"
+              id="todo-user-id-input"
+              class="user-id-input"
+              placeholder="Nhập User ID để xem todos (1-10)"
+              min="1"
+              max="10"
+            />
+            <button id="load-todos-btn" class="search-user-btn">
+              Load Todos
+            </button>
+          </div>
+
+          <div class="todo-filters" id="todo-filters">
+            <button id="filter-all" class="filter-btn active" data-filter="all">
+              Tất cả
+            </button>
+            <button
+              id="filter-completed"
+              class="filter-btn"
+              data-filter="completed"
+            >
+              Đã hoàn thành
+            </button>
+            <button
+              id="filter-incomplete"
+              class="filter-btn"
+              data-filter="incomplete"
+            >
+              Chưa hoàn thành
+            </button>
+          </div>
+
+          <div class="todo-stats" id="todo-stats">
+            <div class="stat-item">
+              <div id="total-todos" class="stat-number">0</div>
+              <div class="stat-label">Tổng cộng</div>
+            </div>
+            <div class="stat-item">
+              <div id="completed-todos" class="stat-number">0</div>
+              <div class="stat-label">Đã hoàn thành</div>
+            </div>
+            <div class="stat-item">
+              <div id="incomplete-todos" class="stat-number">0</div>
+              <div class="stat-label">Chưa hoàn thành</div>
+            </div>
+          </div>
+
+          <div id="todos-loading" class="loading-spinner">
+            <p>🔄 Đang tải todos...</p>
+          </div>
+
+          <div id="todos-error" class="error-message">
+            <p id="todos-error-text" class="error-text">
+              Có lỗi xảy ra khi tải todos
+            </p>
+          </div>
+
+          <div id="todos-retry-info" class="retry-info"></div>
+          <div id="todo-list" class="todo-list">
+            <!-- Todos sẽ được load động bằng JavaScript -->
+          </div>
+        </section>
+
+        <!-- Success Message -->
+        <div id="success-message" class="success-message">
+          <p id="success-text">Thao tác thành công!</p>
+        </div>
+      </main>
+    </div>
+
+    <!-- Template cho Post Item -->
+    <template id="post-template">
+      <div class="post-item" data-post-id="">
+        <h4 class="post-title"></h4>
+        <p class="post-body"></p>
+        <p class="post-author">Tác giả: <span class="author-name"></span></p>
+        <button class="show-comments-btn" data-post-id="">Xem comments</button>
+        <div class="comments-container" data-post-id="">
+          <!-- comments sẽ được load bằng JS -->
+        </div>
+      </div>
+    </template>
+
+    <!-- Template cho Comment Item -->
+    <template id="comment-template">
+      <div class="comment-item">
+        <div class="comment-author"></div>
+        <div class="comment-email"></div>
+        <div class="comment-body"></div>
+      </div>
+    </template>
+
+    <!-- Template cho Todo Item -->
+    <template id="todo-template">
+      <div class="todo-item" data-todo-id="" data-completed="">
+        <div class="todo-checkbox"></div>
+        <div class="todo-text"></div>
+      </div>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
